@@ -1,0 +1,27 @@
+{snippet dialogControl}
+	{ifset $file}
+	{includeblock $file}
+	{/ifset}
+
+	{if (isset($name) OR isset($text) OR isset($control) OR isset($html)) AND !$close}
+
+	<div id="dialog-wrapper">{* #dialog-wrapper má width, není možné kombinovat s .container, treý má padding... *}
+		<div id="dialog-window" style="width:{$width}">
+			<div class="clearfix">
+				<a n:href="close!" onclick="closeDialog()" title="Zavřít" n:class="icon, close, $presenter->isAjax() ? ajax"></a>		      	
+			</div>
+			{ifset $name}<div id="dialog-content">{include #$name}</div>{/ifset}
+			{ifset $text}<div id="dialog-content"><{$el} class="{$class}">{$text}</$el></div>{/ifset} 
+			{ifset $html}<div id="dialog-content">{!$html->render()}</div>{/ifset}
+			{ifset $control}
+				{foreach $control as $c}
+					{$c->render()}
+				{/foreach}
+			{/ifset}
+		</div>
+	</div>
+
+	{/if}
+	
+		
+{/snippet}	
