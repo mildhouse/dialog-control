@@ -13,7 +13,7 @@ namespace Components;
 
 class DialogControl extends BaseControl {
 
-		/** @var Nette\Utils\Html */
+		/** @var array */
 		protected $html;
 		
 		/** @var	string */ 
@@ -65,7 +65,7 @@ class DialogControl extends BaseControl {
 	
 	/**
 	 * Spusti se pri pripojeni k presenteru	
-	 * @param Nette\Application\UI\Presenter $presenter
+	 * @param \Nette\Application\UI\Presenter $presenter
 	 */
 	protected function attached($presenter)
 	{
@@ -82,7 +82,7 @@ class DialogControl extends BaseControl {
 		$this->storage = $presenter->getSession('dialog');
 		$this->parameters = $presenter->getParameter();
 		unset($this->parameters["do"]);
-		
+
 		$this->checkToken();
 	}
 	
@@ -94,7 +94,7 @@ class DialogControl extends BaseControl {
 	private function checkToken(){
 		if(isset($this->storage->token) AND $this->storage->token != $this->newToken){	
 			$this->storage->remove();
-			$this->open = FALSE;
+			$this->close();
 		}
 	}
 	
@@ -112,8 +112,13 @@ class DialogControl extends BaseControl {
 	 * @return bool
 	 */	 	 	 	 	
 	public function init($signal, $callback = NULL){
-	
-		if(!empty($this->signal) AND $this->signal == $signal){			
+		// neotestovano
+		if(($signal instanceof \Nette\Callback OR is_callable($signal)) AND $callback === NULL){
+			$callback = $signal;
+			$signal = NULL;
+		}
+		
+		if($signal === NULL OR (!empty($this->signal) AND $this->signal == $signal)){			
 			$this->storage->handle = $this->signal;
 			$this->storage->args = $this->parameters;
 			$this->setToken();
@@ -195,7 +200,7 @@ class DialogControl extends BaseControl {
 	 * @return  DialogControl
 	 */	 	 	 	
 	public function html(\Nette\Utils\Html $html){
-		$this->html = $html;
+		$this->html[] = $html;
 		return $this;
 	}
 	
@@ -270,17 +275,16 @@ class DialogControl extends BaseControl {
 	 */
 	public function close($location = 'this'){ 
 		$this->storage->remove();
-		$this->open = FALSE;
-		// vyvoláme události přidané do onClose
-		$this->onClose($this);
-		
+		$this->open = FALSE;		
 		if(!$this->presenter->isAjax()){
-			if(isset($location)) $this->redirect($location);
+			if(isset($location)) $this->presenter->redirect($location);
 		}
 	}
 
 	
 	public function handleClose($location){
+		// vyvoláme události přidané do onClose
+		$this->onClose($this);
 		if(empty($location)) $location = 'this';
 		$this->close($location);
 	}
