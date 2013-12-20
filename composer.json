@@ -1,5 +1,5 @@
 {
-	"name": "mildhouse/dialogControl",
+	"name": "mildhouse/dialog-control",
 	"type": "nette-addon",
 	"description": "Modal windows for Nette Framework",
 	"version": "2.1.3",
