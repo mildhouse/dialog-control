@@ -1,0 +1,44 @@
+#dialog-wrapper{
+	background-color:rgba(20,20,20,0.75);
+	width:100%; 
+	height:100%; 
+	position:fixed; 
+	top:0; 
+	left:0; 
+	z-index:9999; 
+	overflow:auto;	
+}
+
+#dialog-window{
+	text-align:left; 
+	width:400px; 
+	padding: 10px 15px 30px; 
+	margin:150px auto;
+	border:#c4c4c4 5px solid; 
+	background-color: #f5f5f5;
+	color:#555;  
+	border-radius: 4px;	
+}
+
+@media handheld, only screen and (max-width: 480px) {
+
+	#dialog-window{	
+		width:auto !important;
+	}
+	
+}
+
+#dialog-window a.close{
+	float:right; 
+	line-height:1em;
+	background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKBAMAAAB/HNKOAAAALVBMVEUmKCQAAAAKCwkICgY0NjESExAuMCsDBAMMDQogIh0XGBQAAAAAAAAfIR0QEg7UVt/hAAAAD3RSTlNmAAYnZk9mLgtmWBNAXTxZ/yGLAAAARUlEQVQI12MwCBIUZmV4kKpoxsDQlRLukMwgscQlxZBBsJfNXZBB0GAmqyKDMAMvQxCDwYSKBawMB9iVdnEy7KlQ0j4OAIapDgQZSB+qAAAAAElFTkSuQmCC);
+	margin-bottom:10px;
+	position:relative;
+	left:10px;
+	padding-left: 20px;
+  background-position: 0 50%;
+  background-repeat: no-repeat;
+  min-height:16px;
+  line-height:16px;
+  display:inline-block;
+}
