@@ -394,7 +394,7 @@ class DialogControl extends Nette\Application\UI\Control
 	public function render() {
 		$this->setTemplateParams();			
 		
-		$this->template->setFile(__DIR__ . '/DialogControl.latte');
+		$this->template->setFile(__DIR__ . '/dialogControl.latte');
 		$this->template->render();
 	}
 	
