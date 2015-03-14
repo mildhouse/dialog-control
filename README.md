@@ -13,9 +13,11 @@ DialogControl requires Nette Framework 2.0.0 or higher and PHP 5.3 or later.
 Installation
 ------------
 
-- Download from Github: <https://github.com/miloslavkostir/dialog-control>
-- Copy files from dialog-control/src to yourWeb/vendor/miloslavkostir/dialog-control
-- Copy css files from dialog-control/resources to css folder in your application
+Install using composer:
+```
+$ composer miloslavkostir/dialog-control: 1.0
+```
+And load css files from vendor/miloslavkostir/dialog-control/resources.
 
 
 Getting started
