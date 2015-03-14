@@ -1,9 +1,20 @@
 {
 	"name": "miloslavkostir/dialog-control",
-	"description": "Modal windows for Nette Framework",
+	"type": "library",
+	"description": "Modal windows for Nette Framework",	
+	"keywords": ["dialog-control", "nette", "modal window", "dialog window"],
+	"license": ["BSD-3"],
 	"authors":[
 		{
-			"name": "Miloslav Koštíř"
+			"name": "Miloslav Koštíř",
+			"email": "miloslav.kostir@gmail.com"
 		}
-	]
+	],
+	"require": {
+		"php" : ">=5.3.2",
+		"nette/nette" : ">=2.0"
+	},
+	"autoload": {
+		"classmap": ["src"]
+	}
 }
