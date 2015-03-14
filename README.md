@@ -13,9 +13,9 @@ DialogControl requires Nette Framework 2.0.0 or higher and PHP 5.3 or later.
 Installation
 ------------
 
-- Download from Github: <https://github.com/mildhouse/DialogControl>
-- Copy files from DialogControl to yourWeb/vendor/others/DialogControl
-- Copy css files from resources to css folder in your application
+- Download from Github: <https://github.com/miloslavkostir/dialog-control>
+- Copy files from dialog-control/src to yourWeb/vendor/miloslavkostir/dialog-control
+- Copy css files from dialog-control/resources to css folder in your application
 
 
 Getting started
@@ -24,7 +24,7 @@ Getting started
 1.Create control in presenter
 ```php
 protected function createComponentDialog(){
-	return new \Mildhouse\DialogControl();
+	return new \MiloslavKostir\DialogControl\DialogControl;
 }
 ```
 
