@@ -1,4 +1,9 @@
 {
 	"name": "miloslavkostir/dialog-control",
-	"description": "Modal windows for Nette Framework"
+	"description": "Modal windows for Nette Framework",
+	"authors":[
+		{
+			"name": "Miloslav Koštíř"
+		}
+	]
 }
