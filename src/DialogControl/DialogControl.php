@@ -8,7 +8,7 @@
  * @license     New BSD Licence
  */
  
-namespace Mildhouse;
+namespace MiloslavKostir\DialogControl;
 
 use Nette;      
 
