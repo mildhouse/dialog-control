@@ -15,7 +15,7 @@ Installation
 
 Install using composer:
 ```
-$ composer miloslavkostir/dialog-control: 1.0
+$ composer require miloslavkostir/dialog-control
 ```
 And load css files from vendor/miloslavkostir/dialog-control/resources.
 
@@ -74,7 +74,7 @@ public function defaultAction(){
 ####Not just message
 Method message() isn't only one what you can use. Try this:
 ```php
-$this->getComponent('dialog')->init(function($dialog){
+$this->getComponent('dialog')->init(NULL, function($dialog){
 
 	$dialog->html(Nette\Utils\Html::el('span')->setClass('error')->setText('This is error'));  // adds HTML element (see Nette\Utils\Html)
 	$dialog->message('In fact, message() is shortcut for html()', 'error', 'span');  // the same as html() above
@@ -107,7 +107,7 @@ protected function createComponentLoginForm(){
 	
 	
 $this->getComponent('dialog')->init('show-block', function($dialog){
-	$dialog->block('loginDialog', '../dialogs/loginDialog.latte')
+	$dialog->block('loginDialog', 'path/to/loginDialog.latte')
 			->createControl('loginForm', $this->createComponentLoginForm())
 			->open();
 }
